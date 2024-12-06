@@ -16,11 +16,7 @@ const Register = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://13.60.230.8:8000/api/register/", formData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post("http://13.60.230.8:8000/api/register/", formData);
       console.log("User registered:", response.data);
 
       navigate("/login");
@@ -71,7 +67,7 @@ const Register = () => {
 };
 
 const containerStyle = {
-  background: "#f0f4f8",
+  background: "url('https://wallpapers.com/images/featured/healthcare-oco8w27tkw40cp90.jpg') no-repeat center center fixed",
   minHeight: "100vh",
   display: "flex",
   justifyContent: "center",
@@ -86,6 +82,9 @@ const formStyle = {
   padding: "40px 20px",
   borderRadius: "8px",
   boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+  display: "flex", // Ensure it uses flexbox
+  flexDirection: "column", // Arrange inputs and button vertically
+  alignItems: "center", // Center content horizontally
 };
 
 const headerStyle = {
@@ -94,7 +93,7 @@ const headerStyle = {
 };
 
 const inputStyle = {
-  width: "100%",
+  width: "90%",
   padding: "10px",
   margin: "10px 0",
   border: "1px solid #ccc",

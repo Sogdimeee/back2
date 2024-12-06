@@ -16,11 +16,15 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://13.60.230.8:8000/api/token/", formData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(
+        "http://13.60.230.8:8000/api/token/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log("User logged in:", response.data);
 
       localStorage.setItem("access_token", response.data.access);
@@ -65,21 +69,20 @@ const Login = () => {
 };
 
 const containerStyle = {
-  background: "#f0f4f8",
+  background: "#f4f4f4",
   minHeight: "100vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  padding: "20px",
 };
 
 const formStyle = {
   maxWidth: "400px",
   width: "100%",
   backgroundColor: "white",
-  padding: "40px 20px",
+  padding: "20px",
   borderRadius: "8px",
-  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
 };
 
 const headerStyle = {
@@ -90,21 +93,19 @@ const headerStyle = {
 const inputStyle = {
   width: "100%",
   padding: "10px",
-  margin: "10px 0",
+  marginBottom: "10px",
   border: "1px solid #ccc",
-  borderRadius: "5px",
-  fontSize: "16px",
+  borderRadius: "4px",
 };
 
 const buttonStyle = {
   width: "100%",
+  padding: "10px",
   backgroundColor: "teal",
   color: "white",
-  padding: "12px",
   border: "none",
-  borderRadius: "5px",
+  borderRadius: "4px",
   cursor: "pointer",
-  fontSize: "16px",
 };
 
 export default Login;
