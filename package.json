@@ -1,4 +1,5 @@
 {
+  "proxy": "http://13.60.230.8:8000",
   "name": "untitled",
   "version": "0.1.0",
   "private": true,

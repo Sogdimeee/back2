@@ -11,31 +11,27 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-const handleLogin = async (e) => {
-  e.preventDefault();
-  setError("");
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
 
-  try {
-    const response = await axios.post(
-      "http://13.60.230.8:8000/api/token/",
-      formData,
-      {
+    try {
+      const response = await axios.post("http://13.60.230.8:8000/api/token/", formData, {
         headers: {
-          "Content-Type": "application/json", // Explicitly set content type
+          "Content-Type": "application/json",
         },
-      }
-    );
-    console.log("User logged in:", response.data);
+      });
+      console.log("User logged in:", response.data);
 
-    localStorage.setItem("access_token", response.data.access);
-    localStorage.setItem("refresh_token", response.data.refresh);
+      localStorage.setItem("access_token", response.data.access);
+      localStorage.setItem("refresh_token", response.data.refresh);
 
-    navigate("/");
-  } catch (err) {
-    console.error(err);
-    setError(err.response?.data?.detail || "Invalid credentials. Please try again.");
-  }
-};
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+      setError(err.response?.data?.detail || "Invalid credentials. Please try again.");
+    }
+  };
 
   return (
     <div style={containerStyle}>
@@ -69,7 +65,7 @@ const handleLogin = async (e) => {
 };
 
 const containerStyle = {
-  background: "url('https://wallpapers.com/images/featured/healthcare-oco8w27tkw40cp90.jpg') no-repeat center center fixed",
+  background: "#f0f4f8",
   minHeight: "100vh",
   display: "flex",
   justifyContent: "center",
@@ -84,9 +80,6 @@ const formStyle = {
   padding: "40px 20px",
   borderRadius: "8px",
   boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-  display: "flex",
-  flexDirection: "column",  // Обеспечиваем вертикальное выравнивание
-  alignItems: "center",      // Центрируем элементы формы
 };
 
 const headerStyle = {
@@ -95,9 +88,9 @@ const headerStyle = {
 };
 
 const inputStyle = {
-  width: "90%",
-  padding: "12px",          // Увеличиваем внутренний отступ для комфортного ввода
-  margin: "10px 0",         // Отступы между полями ввода
+  width: "100%",
+  padding: "10px",
+  margin: "10px 0",
   border: "1px solid #ccc",
   borderRadius: "5px",
   fontSize: "16px",
