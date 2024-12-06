@@ -16,7 +16,7 @@ const Register = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://13.60.13.241:8000/api/register/", formData);
+      const response = await axios.post("http://13.60.230.8:8000/api/register/", formData);
       console.log("User registered:", response.data);
 
       navigate("/login");
