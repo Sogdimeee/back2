@@ -11,23 +11,31 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setError("");
+const handleLogin = async (e) => {
+  e.preventDefault();
+  setError("");
 
-    try {
-      const response = await axios.post("http://13.60.13.241:8000/api/token/", formData);
-      console.log("User logged in:", response.data);
+  try {
+    const response = await axios.post(
+      "http://13.60.230.8:8000/api/token/",
+      formData,
+      {
+        headers: {
+          "Content-Type": "application/json", // Explicitly set content type
+        },
+      }
+    );
+    console.log("User logged in:", response.data);
 
-      localStorage.setItem("access_token", response.data.access);
-      localStorage.setItem("refresh_token", response.data.refresh);
+    localStorage.setItem("access_token", response.data.access);
+    localStorage.setItem("refresh_token", response.data.refresh);
 
-      navigate("/special");
-    } catch (err) {
-      console.error(err);
-      setError(err.response?.data?.detail || "Invalid credentials. Please try again.");
-    }
-  };
+    navigate("/");
+  } catch (err) {
+    console.error(err);
+    setError(err.response?.data?.detail || "Invalid credentials. Please try again.");
+  }
+};
 
   return (
     <div style={containerStyle}>
@@ -61,7 +69,7 @@ const Login = () => {
 };
 
 const containerStyle = {
-  background: "url('https://images2.alphacoders.com/121/1214052.png') no-repeat center center fixed",
+  background: "url('https://wallpapers.com/images/featured/healthcare-oco8w27tkw40cp90.jpg') no-repeat center center fixed",
   minHeight: "100vh",
   display: "flex",
   justifyContent: "center",
@@ -97,7 +105,7 @@ const inputStyle = {
 
 const buttonStyle = {
   width: "100%",
-  backgroundColor: "red",
+  backgroundColor: "teal",
   color: "white",
   padding: "12px",
   border: "none",

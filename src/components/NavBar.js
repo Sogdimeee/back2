@@ -14,7 +14,11 @@ const NavBar = () => {
   return (
     <nav style={navBarStyle}>
       <Link to="/" style={logoStyle}>
-        <img src="https://logos-world.net/wp-content/uploads/2023/12/F1-Emblem.png" alt="Logo" style={logoImageStyle} />
+        <img
+          src="https://www.freeiconspng.com/thumbs/doctor-logo/doctor-logo-png-photo-5.png"
+          alt="Logo"
+          style={logoImageStyle}
+        />
       </Link>
       <div>
         {!isAuthenticated ? (
@@ -28,9 +32,6 @@ const NavBar = () => {
           </>
         ) : (
           <>
-            <Link to="/special" style={buttonStyle}>
-              Special Page
-            </Link>
             <button onClick={handleLogout} style={buttonStyle}>
               Logout
             </button>
@@ -45,39 +46,39 @@ const navBarStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: 'red',
-  padding: '5px 20px', // Уменьшаем высоту навбара
+  backgroundColor: '#30D5C8', // Updated to teal color
+  padding: '5px 20px',
   position: 'fixed',
   top: 0,
   left: 0,
   right: 0,
   zIndex: 1000,
   boxSizing: 'border-box',
-  borderBottom: 'none', // Убираем белую линию снизу
+  borderBottom: 'none',
 };
 
 const logoStyle = {
   display: 'flex',
   alignItems: 'center',
+  maxWidth: '80px'
 };
 
 const logoImageStyle = {
-  width: '100%', // Логотип будет растягиваться на всю ширину
-  height: 'auto', // Сохраняет пропорции логотипа
-  maxWidth: '120px', // Ограничение максимальной ширины логотипа
+  width: '100%',
+  height: 'auto',
+  maxWidth: '120px', // Limit the maximum width of the logo
 };
 
 const buttonStyle = {
   backgroundColor: 'white',
-  color: 'red', // Текст красный
-  padding: '8px 15px', // Уменьшаем размер кнопок
+  color: '#30D5C8', // Text color changed to teal
+  padding: '8px 15px',
   margin: '0 8px',
   textDecoration: 'none',
-  border: '2px solid red', // Красная рамка вокруг кнопки
+  border: '2px solid #30D5C8', // Border color changed to teal
   cursor: 'pointer',
   borderRadius: '5px',
-  transition: 'all 0.3s ease', // Плавное увеличение кнопки
+  transition: 'all 0.3s ease',
 };
-
 
 export default NavBar;

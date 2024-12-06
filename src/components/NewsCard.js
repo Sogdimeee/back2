@@ -32,3 +32,4 @@ const NewsCard = ({ title, imageUrl }) => {
 };
 
 export default NewsCard;
+

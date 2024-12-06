@@ -16,7 +16,7 @@ const Register = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://13.60.13.241:8000/api/register/", formData);
+      const response = await axios.post("http://13.60.230.8:8000/api/register/", formData);
       console.log("User registered:", response.data);
 
       navigate("/login");
@@ -67,7 +67,7 @@ const Register = () => {
 };
 
 const containerStyle = {
-  background: "url('https://images2.alphacoders.com/121/1214052.png') no-repeat center center fixed",
+  background: "url('https://wallpapers.com/images/featured/healthcare-oco8w27tkw40cp90.jpg') no-repeat center center fixed",
   minHeight: "100vh",
   display: "flex",
   justifyContent: "center",
@@ -103,7 +103,7 @@ const inputStyle = {
 
 const buttonStyle = {
   width: "100%",
-  backgroundColor: "red",
+  backgroundColor: "teal",
   color: "white",
   padding: "12px",
   border: "none",
